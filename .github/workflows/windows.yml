@@ -2,15 +2,18 @@ name: Windows
 
 on: [push, pull_request]
 
+env:
+  CARGO_TERM_COLOR: always
+
 jobs:
   build:
     runs-on: windows-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Setup Rust toolchain
         uses: dtolnay/rust-toolchain@stable
-      - name: Build
-        run: cargo build --verbose --features=all
+#      - name: Build
+#        run: cargo build --verbose --features=all
       - name: Run tests
         run: cargo test --features=all --verbose
