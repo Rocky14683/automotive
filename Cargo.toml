@@ -40,7 +40,6 @@ tokio = { version = "1.36.0", features = ["full"] }
 tokio-hrtime = "0.1.6"
 tokio-stream = "0.1.14"
 tracing = "0.1"
-windows = "=0.36.1"
 
 [target.'cfg(target_os = "linux")'.dependencies]
 socket2 = "0.5.7"
@@ -55,3 +54,6 @@ serial_test = "3.0.0"
 
 [target.'cfg(target_os = "windows")'.build-dependencies]
 bindgen = "0.69.4"
+
+[patch.crates-io]
+windows = { git = "https://github.com/microsoft/windows-rs", tag = "0.36.1" }
